@@ -6,7 +6,7 @@ const logger = require('morgan');
 const { sequelize } = require('./db/models');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const indexRouter = require('./routes/index');
+const breakfastRouter = require('./routes/index');
 const bananasRouter = require('./routes/users');
 
 const app = express();
@@ -35,7 +35,7 @@ app.use(
 // create Session table if it doesn't already exist
 store.sync();
 
-app.use('/', indexRouter);
+app.use('/yum', breakfastRouter);
 app.use('/bananas', bananasRouter);
 
 // catch 404 and forward to error handler
